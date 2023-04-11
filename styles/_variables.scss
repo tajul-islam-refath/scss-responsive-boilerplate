@@ -1,0 +1,25 @@
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xlarge: 1200px,
+  xxlarge: 1400px,
+);
+
+$p-font-sizes: (
+  null: 12px, // for small devices
+  small: 15px,
+  medium: 17px,
+  large: 19px,
+  xlarge: 24px,
+  xxlarge: 28px,
+);
+
+$h1-font-sizes: (
+  null: 28px,
+  small: 33px,
+  medium: 36px,
+  large: 38px,
+  xlarge: 40px,
+  xxlarge: 44px,
+);
