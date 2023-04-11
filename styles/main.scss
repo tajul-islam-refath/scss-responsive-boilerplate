@@ -9,3 +9,11 @@ h1{
 p{
     @include font-size($p-font-sizes, $breakpoints)
 }
+
+div{
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    @include responsive-width($width, $breakpoints);
+    margin: auto;
+}

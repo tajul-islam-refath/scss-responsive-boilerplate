@@ -1,58 +1,70 @@
 // Responsive break points
 @mixin break($breakpoint) {
-    // #Small devices - Smartphones portrait 📱- 576px and ⬇
-    @if $breakpoint == xsmall {
-      @media only screen and (max-width: 576px) {
-        @content;
-      }
-    }
-    
-    // #Small devices - Smartphones - landscape 📱- 767.98px and ⬇
-    @if $breakpoint == small {
-      @media only screen and (max-width: 768px) {
-        @content;
-      }
-    }
-    // #Medium devices - Tablets 📱 - 991.98px and ⬇
-    @if $breakpoint == medium {
-      @media only screen and (max-width: 992px) {
-        @content;
-      }
-    }
-    // #Large devices - Desktops 💻 -  1199.98px and ⬇
-    @if $breakpoint == large {
-      @media only screen and (max-width: 1200px) {
-        @content;
-      }
-    }
-    // #Extra large devices - Large desktops 🖥 - 1200px and ⬆
-    @if $breakpoint == xlarge {
-      @media only screen and (min-width: 1200px) {
-        @content;
-      }
+  // #Small devices - Smartphones portrait 📱- 576px and ⬇
+  @if $breakpoint == xsmall {
+    @media only screen and (max-width: 576px) {
+      @content;
     }
   }
 
-
+  // #Small devices - Smartphones - landscape 📱- 767.98px and ⬇
+  @if $breakpoint == small {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  // #Medium devices - Tablets 📱 - 991.98px and ⬇
+  @if $breakpoint == medium {
+    @media only screen and (max-width: 992px) {
+      @content;
+    }
+  }
+  // #Large devices - Desktops 💻 -  1199.98px and ⬇
+  @if $breakpoint == large {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+  // #Extra large devices - Large desktops 🖥 - 1200px and ⬆
+  @if $breakpoint == xlarge {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
 
 // responsive font sizes
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
-    @each $fs-breakpoint, $fs-font-size in $fs-map {
-      @if $fs-breakpoint == null {
-        font-size: $fs-font-size;
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    } @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
       }
-      @else {
-        // If $fs-font-size is a key that exists in
-        // $fs-breakpoints, use the value
-        @if map-has-key($fs-breakpoints, $fs-breakpoint) {
-          $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
-        }
-        @media screen and (min-width: $fs-breakpoint) {
-          font-size: $fs-font-size;
-        }
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
       }
     }
   }
+}
 
-
-  
+// responsive widths
+@mixin responsive-width($width-map, $width-breakpoints: $breakpoints) {
+  @each $width-breakpoint, $width in $width-map {
+    @if $width-breakpoint == null {
+      width: $width;
+    } @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($width-breakpoints, $width-breakpoint) {
+        $width-breakpoint: map-get($width-breakpoints, $width-breakpoint);
+      }
+      @media screen and (min-width: $width-breakpoint) {
+        width: $width;
+      }
+    }
+  }
+}

@@ -6,6 +6,15 @@ $breakpoints: (
   xxlarge: 1400px,
 );
 
+$width: (
+  null: 100%,
+  small: 80%,
+  medium: 70%,
+  large: 60%,
+  xlarge: 50%,
+  xxlarge: 50%,
+);
+
 $p-font-sizes: (
   null: 12px, // for small devices
   small: 15px,
